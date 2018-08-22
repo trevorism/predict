@@ -21,6 +21,7 @@ plugins {
     id "groovy"
     id "war"
     id "jacoco"
+    id "com.moowork.node" version "1.2.0"
 }
 
 apply plugin: 'com.google.cloud.tools.appengine'
@@ -65,6 +66,30 @@ dependencies {
     testCompile "com.google.appengine:appengine-api-labs:$appengineVersion"
     testCompile "com.google.appengine:appengine-tools-sdk:$appengineVersion"
 }
+
+node {
+    version = '8.11.0'
+    npmVersion = '6.4.0'
+    download = false
+    nodeModulesDir = file("${project.projectDir}/src/app")
+}
+
+
+task buildApp(type: NpmTask) {
+    args = ['run', 'build']
+}
+
+task testApp(type: NpmTask) {
+    args = ['test']
+}
+
+war{
+    from "${buildDir}/dist"
+}
+
+war.dependsOn("buildApp")
+check.dependsOn("testApp")
+
 
 acceptance {
     stepDefinitionRoots = ['src/acceptance/groovy/com/trevorism/gcloud']
