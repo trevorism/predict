@@ -68,9 +68,9 @@ dependencies {
 }
 
 node {
-    version = '8.10.0'
-    npmVersion = '5.8.0'
-    download = false
+    version = '8.11.4'
+    npmVersion = '6.4.0'
+    download = true
     nodeModulesDir = file("${project.projectDir}/src/app")
 }
 
