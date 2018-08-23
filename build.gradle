@@ -74,13 +74,25 @@ node {
     nodeModulesDir = file("${project.projectDir}/src/app")
 }
 
+task installNodeDependencies(type: NpmTask) {
+    group = "npm"
+    args = ['install']
+}
 
 task buildApp(type: NpmTask) {
+    dependsOn('installNodeDependencies')
+    group = "npm"
     args = ['run', 'build']
 }
 
 task testApp(type: NpmTask) {
+    group = "npm"
     args = ['test']
+}
+
+task runApp(type: NpmTask) {
+    group = "npm"
+    args = ['run','dev']
 }
 
 war{

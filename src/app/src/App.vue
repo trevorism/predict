@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <h1 class="title">Trevorism Predictions</h1>
+      </div>
+    </section>
+
     <HelloWorld/>
     World
   </div>
@@ -17,12 +23,7 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body::-webkit-scrollbar {
+    display: none;
+  }
 </style>
