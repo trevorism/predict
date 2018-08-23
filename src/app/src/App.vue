@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <HelloWorld/>
+    World
   </div>
 </template>
 
