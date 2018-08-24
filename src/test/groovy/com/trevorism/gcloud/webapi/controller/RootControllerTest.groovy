@@ -1,5 +1,6 @@
 package com.trevorism.gcloud.webapi.controller
 
+import com.trevorism.predict.webapi.RootController
 import org.junit.Test
 
 /**

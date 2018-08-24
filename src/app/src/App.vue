@@ -7,7 +7,7 @@
     </section>
 
     <HelloWorld/>
-    
+
   </div>
 </template>
 
