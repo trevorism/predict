@@ -1,9 +1,8 @@
 package com.trevorism.predict.service
 
-import com.trevorism.data.FastDatastoreRepository
+
 import com.trevorism.data.PingingDatastoreRepository
 import com.trevorism.data.Repository
-import com.trevorism.predict.model.Prediction
 import com.trevorism.predict.model.PredictionChoice
 
 /**
@@ -12,7 +11,6 @@ import com.trevorism.predict.model.PredictionChoice
 class DatastorePredictionChoiceService implements PredictionChoiceService {
 
     private Repository<PredictionChoice> repository = new PingingDatastoreRepository<>(PredictionChoice)
-    private Repository<PredictionChoice> fastRepo = new FastDatastoreRepository<>(PredictionChoice)
 
     @Override
     PredictionChoice create(PredictionChoice predictionChoice) {

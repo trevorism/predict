@@ -37,21 +37,13 @@ class PredictionController {
         predictionService.create(prediction)
     }
 
-    @ApiOperation(value = "View a Prediction with the {name}")
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    Prediction get(String id) {
-        predictionService.get(id)
-    }
-
     @ApiOperation(value = "View a Button with the {title}")
     @GET
-    @Path("{title}")
+    @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    Prediction getByTitle(@PathParam("title") String title) {
-        predictionService.getByTitle(title)
+    Prediction get(@PathParam("id") String id) {
+        predictionService.get(id)
     }
 
     @ApiOperation(value = "Delete a Prediction with the {id} **Secure")
