@@ -2,6 +2,7 @@ package com.trevorism.predict.webapi
 
 import com.trevorism.predict.model.Prediction
 import com.trevorism.predict.model.PredictionChoice
+import com.trevorism.predict.model.PredictionQuestion
 import com.trevorism.predict.model.PredictionResponse
 import com.trevorism.predict.service.DatastorePredictionService
 import com.trevorism.predict.service.PredictionService
@@ -61,6 +62,17 @@ class PredictionController {
     @Consumes(MediaType.APPLICATION_JSON)
     Prediction delete(@PathParam("id") String id) {
         predictionService.delete(id)
+    }
+
+    @ApiOperation(value = "Create a new Prediction Question **Secure")
+    @POST
+    @Secure
+    @Path("{id}/question")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Prediction addQuestion(@PathParam("id") String predictionId, PredictionQuestion question) {
+        Prediction prediction = get(predictionId)
+        predictionService.addQuestion(prediction, question)
     }
 
     @ApiOperation(value = "Create a new Prediction Choice **Secure")

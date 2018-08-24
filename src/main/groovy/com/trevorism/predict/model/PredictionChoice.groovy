@@ -13,8 +13,8 @@ class PredictionChoice {
     String prompt
     @ApiModelProperty(value = "The type of answer possible (true/false | date | score | etc.", dataType = "string")
     String answerType
-    @ApiModelProperty(value = "The id of the question associated with this response", dataType = "string")
-    String questionId
+    @ApiModelProperty(value = "The id of the prediction associated with this response", dataType = "string")
+    String predictionId
     @ApiModelProperty(value = "Date the question was created", dataType = "date")
     Date created
 

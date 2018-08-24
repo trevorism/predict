@@ -2,6 +2,7 @@ package com.trevorism.predict.service
 
 import com.trevorism.predict.model.Prediction
 import com.trevorism.predict.model.PredictionChoice
+import com.trevorism.predict.model.PredictionQuestion
 import com.trevorism.predict.model.PredictionResponse
 
 /**
@@ -36,6 +37,11 @@ class DatastorePredictionService implements PredictionService {
 
     @Override
     Prediction addResponse(Prediction prediction, PredictionResponse response) {
+        return null
+    }
+
+    @Override
+    Prediction addQuestion(Prediction prediction, PredictionQuestion question) {
         return null
     }
 }
