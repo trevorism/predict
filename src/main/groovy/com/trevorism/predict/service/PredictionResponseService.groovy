@@ -1,6 +1,5 @@
 package com.trevorism.predict.service
 
-import com.trevorism.predict.model.PredictionQuestion
 import com.trevorism.predict.model.PredictionResponse
 
 /**
@@ -8,8 +7,8 @@ import com.trevorism.predict.model.PredictionResponse
  */
 interface PredictionResponseService {
 
-    PredictionResponse create(PredictionQuestion question, PredictionResponse predictionResponse)
+    PredictionResponse create(PredictionResponse predictionResponse)
     PredictionResponse get(String id)
-    List<PredictionResponse> getForQuestion(PredictionQuestion question)
+    List<PredictionResponse> getForPrediction(String predictionId)
     PredictionResponse delete(String id)
 }

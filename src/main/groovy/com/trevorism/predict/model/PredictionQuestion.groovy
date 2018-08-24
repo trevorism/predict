@@ -11,6 +11,8 @@ class PredictionQuestion {
     String id
     @ApiModelProperty(value = "A question of the prediction", dataType = "string")
     String prompt
+    @ApiModelProperty(value = "The id of the prediction associated with this response", dataType = "string")
+    String predictionId
     @ApiModelProperty(value = "Date the question was created", dataType = "date")
     Date created
 

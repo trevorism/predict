@@ -17,11 +17,12 @@ class Prediction {
     Date completed
     @ApiModelProperty(value = "Help to find the question")
     List<String> tags = []
-
+    @ApiModelProperty(value = "The type of answer possible (true/false | date | score | etc.", dataType = "string")
+    String answerType
     @ApiModelProperty(value = "The question for the prediction", dataType = "string")
     String questionId
     @ApiModelProperty(value = "The valid choices for the prediction")
     List<String> choices = []
-    @ApiModelProperty(value = "The responses for the prediction")
-    List<String> responses = []
+    @ApiModelProperty(value = "The number of responses", dataType = "integer")
+    int responseCount = 0
 }

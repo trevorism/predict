@@ -11,8 +11,6 @@ class PredictionChoice {
     String id
     @ApiModelProperty(value = "A possible answer for the prediction", dataType = "string")
     String prompt
-    @ApiModelProperty(value = "The type of answer possible (true/false | date | score | etc.", dataType = "string")
-    String answerType
     @ApiModelProperty(value = "The id of the prediction associated with this response", dataType = "string")
     String predictionId
     @ApiModelProperty(value = "Date the question was created", dataType = "date")

@@ -9,6 +9,5 @@ interface PredictionQuestionService {
 
     PredictionQuestion create(PredictionQuestion predictionQuestion)
     PredictionQuestion get(String id)
-    List<PredictionQuestion> getByCategory(String category)
     PredictionQuestion delete(String id)
 }
