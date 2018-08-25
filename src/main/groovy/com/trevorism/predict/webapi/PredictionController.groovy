@@ -13,6 +13,7 @@ import io.swagger.annotations.ApiOperation
 import javax.ws.rs.Consumes
 import javax.ws.rs.DELETE
 import javax.ws.rs.GET
+import javax.ws.rs.NotFoundException
 import javax.ws.rs.POST
 import javax.ws.rs.Path
 import javax.ws.rs.PathParam
@@ -64,6 +65,9 @@ class PredictionController {
     @Consumes(MediaType.APPLICATION_JSON)
     Prediction addQuestion(@PathParam("id") String predictionId, PredictionQuestion question) {
         Prediction prediction = get(predictionId)
+        if(!prediction)
+            throw new NotFoundException("Unable to find prediction with id: ${predictionId}")
+
         predictionService.addQuestion(prediction, question)
     }
 
@@ -75,6 +79,8 @@ class PredictionController {
     @Consumes(MediaType.APPLICATION_JSON)
     Prediction addChoice(@PathParam("id") String predictionId, PredictionChoice choice) {
         Prediction prediction = get(predictionId)
+        if(!prediction)
+            throw new NotFoundException("Unable to find prediction with id: ${predictionId}")
         predictionService.addChoice(prediction, choice)
     }
 
@@ -85,6 +91,8 @@ class PredictionController {
     @Consumes(MediaType.APPLICATION_JSON)
     Prediction addResponse(@PathParam("id") String predictionId, PredictionResponse response) {
         Prediction prediction = get(predictionId)
+        if(!prediction)
+            throw new NotFoundException("Unable to find prediction with id: ${predictionId}")
         predictionService.addResponse(prediction, response)
     }
 }

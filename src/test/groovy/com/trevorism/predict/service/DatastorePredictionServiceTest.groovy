@@ -118,7 +118,7 @@ class DatastorePredictionServiceTest {
     }
 
 
-    private static Prediction createPrediction() {
+    static Prediction createPrediction() {
         Prediction prediction = new Prediction()
         LocalDate localDate = LocalDate.parse("2019-06-25")
         Date completedDate = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant())
