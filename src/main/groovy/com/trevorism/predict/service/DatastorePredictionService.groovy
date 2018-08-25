@@ -29,6 +29,11 @@ class DatastorePredictionService implements PredictionService {
     }
 
     @Override
+    List<Prediction> list() {
+        repository.list()
+    }
+
+    @Override
     Prediction getByTitle(String title) {
         repository.list().find{
             it.title == title

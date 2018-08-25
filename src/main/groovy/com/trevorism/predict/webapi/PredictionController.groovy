@@ -38,7 +38,15 @@ class PredictionController {
         predictionService.create(prediction)
     }
 
-    @ApiOperation(value = "View a Button with the {title}")
+    @ApiOperation(value = "View all Predictions")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    List<Prediction> list() {
+        predictionService.list()
+    }
+
+    @ApiOperation(value = "View a Prediction with the {title}")
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)

@@ -12,6 +12,7 @@ interface PredictionService {
 
     Prediction create(Prediction prediction)
     Prediction get(String id)
+    List<Prediction> list()
     Prediction getByTitle(String title)
     Prediction delete(String id)
     Prediction addChoice(Prediction prediction, PredictionChoice choice)
