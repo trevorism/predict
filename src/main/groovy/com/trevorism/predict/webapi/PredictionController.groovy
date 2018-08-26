@@ -46,7 +46,7 @@ class PredictionController {
         predictionService.list()
     }
 
-    @ApiOperation(value = "View a Prediction with the {title}")
+    @ApiOperation(value = "View a Prediction with the {id}")
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)

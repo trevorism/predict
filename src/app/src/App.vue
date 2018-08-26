@@ -1,23 +1,20 @@
 <template>
   <div id="app">
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <h1 class="title">Trevorism Predictions</h1>
-      </div>
-    </section>
-
-    <HelloWorld/>
-
+    <header class="navbar has-shadow"> <h2>Trevorism Predictions</h2> </header>
+    <div class="tile is-parent">
+      <article class="tile is-child is-primary">How good are you at telling the future?</article>
+    </div>
+    <div class="section"><MainContent></MainContent></div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import MainContent from './components/MainContent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainContent
   }
 }
 </script>
