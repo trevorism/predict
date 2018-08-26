@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header class="navbar has-shadow"> <h2>Trevorism Predictions</h2> </header>
+    <header class="navbar has-shadow"> <img src="./assets/header.png"/> </header>
     <div class="tile is-parent">
       <article class="tile is-child is-primary">How good are you at telling the future?</article>
     </div>
