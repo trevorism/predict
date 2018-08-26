@@ -12,17 +12,11 @@
           <div class="level-right"><div class="level-item is-size-4">{{card.category}} </div></div>
           </div>
           <div class="content">
-            <div v-for="choice in card.choices" :key="choice.id">
-              {{choice.prompt}}
-            </div>
-          </div>
-          <div class="content">
-            <button class="button is-success" type="button">Submit</button>
-
+            <ChoicesForm :choices="card.choices" @submitted="submittedPrediction"></ChoicesForm>
           </div>
         </b-tab-item>
         <b-tab-item label="Stats">
-          Chart here with data
+          {{stats}}
         </b-tab-item>
       </b-tabs>
     </div>
@@ -32,14 +26,17 @@
 
 <script>
 import axios from 'axios'
+import ChoicesForm from './ChoicesForm'
 
 export default {
   name: 'PredictionCard',
+  components: {ChoicesForm},
   props: ['predictionData'],
   data () {
     return {
       activeTab: 0,
-      card: {}
+      card: {},
+      stats: {}
     }
   },
   mounted () {
@@ -49,6 +46,12 @@ export default {
       })
       .catch(() => {
       })
+  },
+  methods: {
+    submittedPrediction: function (stats) {
+      this.activeTab = 1
+      this.stats = stats
+    }
   }
 }
 </script>
