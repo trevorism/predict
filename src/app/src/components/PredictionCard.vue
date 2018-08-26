@@ -5,7 +5,7 @@
         <b-tab-item label="Prediction">
           <div class="level">
           <div class="level-left">
-            <div class="level-item is-size-4">
+            <div class="level-item is-size-4" v-if="card.question">
               {{card.question.prompt}}
             </div>
           </div>
@@ -15,8 +15,10 @@
             <ChoicesForm :choices="card.choices" @submitted="submittedPrediction"></ChoicesForm>
           </div>
         </b-tab-item>
-        <b-tab-item label="Stats">
-          {{stats}}
+        <b-tab-item label="Stats" :disabled="statsDisabled">
+          <div v-if="!statsDisabled">
+            <statistics :width="900" :height="240" :stats="stats"></statistics>
+          </div>
         </b-tab-item>
       </b-tabs>
     </div>
@@ -27,14 +29,16 @@
 <script>
 import axios from 'axios'
 import ChoicesForm from './ChoicesForm'
+import Statistics from './Statistics'
 
 export default {
   name: 'PredictionCard',
-  components: {ChoicesForm},
+  components: {Statistics, ChoicesForm},
   props: ['predictionData'],
   data () {
     return {
       activeTab: 0,
+      statsDisabled: true,
       card: {},
       stats: {}
     }
@@ -51,6 +55,7 @@ export default {
     submittedPrediction: function (stats) {
       this.activeTab = 1
       this.stats = stats
+      this.statsDisabled = false
     }
   }
 }
