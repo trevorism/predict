@@ -10,6 +10,13 @@ export default {
       maintainAspectRatio: false,
       legend: {
         display: false
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
       }
     })
   },
